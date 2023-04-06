@@ -31,15 +31,12 @@ services:
   indexer_check:
     container_name: indexer_check
     image: aergo/indexer2:latest
-    build:
-     context: ./
-     dockerfile: Dockerfile
     ports:
      - 8001:8001
     privileged: true
     command: indexer
       - --aergo=localhost:7845
-      - --dburl=localhost:9200
+      - --dburl=es:9200
       - --prefix=local
       - --mode=check
       - --from=0
@@ -49,15 +46,12 @@ services:
   indexer_onsync:
     container_name: indexer_onsync
     image: aergo/indexer2:latest
-    build:
-     context: ./
-     dockerfile: Dockerfile
     ports:
      - 8001:8001
     privileged: true
     command: indexer
       - --aergo=localhost:7845
-      - --dburl=localhost:9200
+      - --dburl=es:9200
       - --prefix=local
       - --mode=onsync
     depends_on:
