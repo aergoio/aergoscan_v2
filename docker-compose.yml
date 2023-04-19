@@ -8,6 +8,7 @@ services:
             - '443:443'
         build:
             args:
+                ARG_USE_DNS: ${USE_DNS}
                 ARG_SCAN_API_HOST: ${SCAN_API_HOST}
                 ARG_SCAN_EXPLORER_HOST: ${SCAN_EXPLORER_HOST}
                 ARG_AERGO_NODE_HOST: ${AERGO_NODE_HOST}
@@ -48,7 +49,6 @@ services:
             - --to=0
         depends_on:
             - db
-        # network_mode: "host"
     indexer_onsync:
         container_name: indexer_onsync
         image: aergo/indexer2:2.1.4
@@ -60,7 +60,6 @@ services:
             - --mode=onsync
         depends_on:
             - db
-        # network_mode: "host"
     db:
         container_name: es
         image: docker.elastic.co/elasticsearch/elasticsearch:7.15.2

@@ -23,7 +23,15 @@ COPY ./nginx/rootca_api.crt /etc/nginx/ssl/rootca_api.crt
 COPY ./nginx/rootca_api.key /etc/nginx/ssl/rootca_api.key
 COPY ./nginx/rootca_node.crt /etc/nginx/ssl/rootca_node.crt
 COPY ./nginx/rootca_node.key /etc/nginx/ssl/rootca_node.key
-COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
+COPY ./nginx/nginx_https.conf /etc/nginx/conf.d/default_https.back
+COPY ./nginx/nginx_http.conf /etc/nginx/conf.d/default_http.back
+
+ARG ARG_USE_DNS
+RUN if [ "${ARG_USE_DNS}" = "true" ] ; then \
+        mv /etc/nginx/conf.d/default_https.back /etc/nginx/conf.d/default.conf ; \
+    else \
+        mv /etc/nginx/conf.d/default_http.back /etc/nginx/conf.d/default.conf ; \
+    fi
 
 ARG ARG_AERGO_NODE
 ENV AERGO_NODE ${ARG_AERGO_NODE}
