@@ -29,8 +29,18 @@ ARG ARG_AERGO_NODE
 ENV AERGO_NODE ${ARG_AERGO_NODE}
 ARG ARG_AERGO_NODE_HOST
 ENV AERGO_NODE_HOST ${ARG_AERGO_NODE_HOST}
+ARG ARG_SCAN_EXPLORER_HOST
+ENV SCAN_EXPLORER_HOST ${ARG_SCAN_EXPLORER_HOST}
+ARG ARG_SCAN_API_HOST
+ENV SCAN_API_HOST ${ARG_SCAN_API_HOST}
+
 RUN sed -i "s#AERGO_NODE_HOST#${AERGO_NODE_HOST}#" /etc/nginx/conf.d/default.conf
 RUN sed -i "s#AERGO_NODE#${AERGO_NODE}#" /etc/nginx/conf.d/default.conf
+RUN sed -i "s#SCAN_EXPLORER_HOST#${SCAN_EXPLORER_HOST}#" /etc/nginx/conf.d/default.conf
+RUN sed -i "s#SCAN_API_HOST#${SCAN_API_HOST}#" /etc/nginx/conf.d/default.conf
+RUN sed -i 's#server_name https:\/\/#server_name #' /etc/nginx/conf.d/default.conf
+RUN sed -i 's#server_name http:\/\/#server_name #' /etc/nginx/conf.d/default.conf
+
 EXPOSE 80
 EXPOSE 443
 CMD ["nginx", "-g", "daemon off;"]

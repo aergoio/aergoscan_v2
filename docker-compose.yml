@@ -8,6 +8,8 @@ services:
             - '443:443'
         build:
             args:
+                ARG_SCAN_API_HOST: ${SCAN_API_HOST}
+                ARG_SCAN_EXPLORER_HOST: ${SCAN_EXPLORER_HOST}
                 ARG_AERGO_NODE_HOST: ${AERGO_NODE_HOST}
                 ARG_AERGO_NODE: ${AERGO_NODE}
                 ARG_API_URL: https://localapi.aergoscan.io/v2
