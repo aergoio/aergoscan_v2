@@ -5,15 +5,11 @@ services:
         image: aergoscan/frontend:2.0.0
         ports:
             - '80:80'
-            - '443:443'
         build:
             args:
-                ARG_USE_DNS: ${USE_DNS}
-                ARG_SCAN_API_HOST: ${SCAN_API_HOST}
-                ARG_SCAN_EXPLORER_HOST: ${SCAN_EXPLORER_HOST}
-                ARG_AERGO_NODE_HOST: ${AERGO_NODE_HOST}
                 ARG_AERGO_NODE: ${AERGO_NODE}
-                ARG_API_URL: ${SCAN_API_HOST}/v2
+                ARG_API_URL: http://localhost:3000/v2
+            dockerfile: Dockerfile.ip
         depends_on:
             - backend
     backend:
