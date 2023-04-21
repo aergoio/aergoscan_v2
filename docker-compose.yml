@@ -36,7 +36,7 @@ services:
             - sudo docker run -d --rm -p 3000:3000 --net=host --privileged --name aergoscan-api aergoscan/api:2.1.2
     indexer_check:
         container_name: indexer_check
-        image: aergo/indexer2:2.1.4
+        image: aergo/indexer2:2.1.5
         ports:
             - 8001:8001
         privileged: true
@@ -51,7 +51,7 @@ services:
             - db
     indexer_onsync:
         container_name: indexer_onsync
-        image: aergo/indexer2:2.1.4
+        image: aergo/indexer2:2.1.5
         privileged: true
         command: indexer
             - --aergo=${AERGO_NODE}
