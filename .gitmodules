@@ -1,7 +1,6 @@
 [submodule "aergoscan_v2_api"]
 	path = aergoscan_v2_api
 	url = https://github.com/aergoio/aergoscan_v2_api
-	branch = feature/deploy
 [submodule "aergoscan_v2_frontend"]
 	path = aergoscan_v2_frontend
 	url = https://github.com/aergoio/aergoscan_v2_frontend
