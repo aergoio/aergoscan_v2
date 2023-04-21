@@ -49,6 +49,7 @@ services:
             - --to=0
         depends_on:
             - db
+            - indexer_onsync
     indexer_onsync:
         container_name: indexer_onsync
         image: aergo/indexer2:2.1.5
