@@ -24,6 +24,7 @@ services:
         build:
             context: ./aergoscan_v2_api
         environment:
+            AERGO_NODE: ${AERGO_NODE}
             HOST_API: ${SCAN_API_HOST}
             SELECTED_NETWORK: local
             ES_URL: es:9200
