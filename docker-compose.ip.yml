@@ -2,7 +2,7 @@ version: '3.2'
 services:
     frontend:
         container_name: frontend_v2
-        image: aergoscan/frontend:2.4.0
+        image: aergoscan/frontend:2.6.1
         ports:
             - '80:80'
         build:
@@ -14,7 +14,7 @@ services:
             - backend
     backend:
         container_name: aergoscan-api
-        image: aergoscan/api:2.4.0
+        image: aergoscan/api:2.6.1
         ports:
             - '3000:3000'
         build:
@@ -30,7 +30,7 @@ services:
         restart: always
     indexer:
         container_name: indexer
-        image: aergo/indexer2:2.4.0
+        image: aergo/indexer2:2.6.1
         ports:
             - 8000:8000
         privileged: true
