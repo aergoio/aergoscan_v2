@@ -1,4 +1,4 @@
-FROM node:14 as builder
+FROM node:18 as builder
 LABEL description="nginx"
 
 ARG ARG_AERGO_NODE_HOST
