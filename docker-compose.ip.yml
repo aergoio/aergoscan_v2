@@ -46,7 +46,7 @@ services:
         restart: always
     db:
         container_name: es
-        image: docker.elastic.co/elasticsearch/elasticsearch:7.15.2
+        image: docker.elastic.co/elasticsearch/elasticsearch:7.17.24
         environment:
             discovery.type: single-node
             xpack.security.enabled: false
@@ -74,7 +74,7 @@ services:
                 max-size: '1000m'
     # 키바나 조회 필요 시 주석 해제
     # kibana:
-    #     image: docker.elastic.co/kibana/kibana:7.15.2
+    #     image: docker.elastic.co/kibana/kibana:7.17.24
     #     container_name: kibana
     #     ports:
     #         - 5601:5601
