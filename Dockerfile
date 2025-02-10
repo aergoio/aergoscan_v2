@@ -14,7 +14,7 @@ COPY ./aergoscan_v2_frontend/. .
 RUN AERGO_NODE=${AERGO_NODE} API_URL=${API_URL} yarn build
 
 
-FROM nginx:1.27.1-alpine:latest
+FROM nginx:1.27.1-alpine
 COPY --from=builder /aergoscan_frontend/build /usr/share/nginx/html
 RUN mkdir /etc/nginx/ssl
 COPY ./nginx/rootca_frontend.crt /etc/nginx/ssl/rootca_frontend.crt
