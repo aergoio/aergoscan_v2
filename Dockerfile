@@ -1,4 +1,4 @@
-FROM node:18 as builder
+FROM node:20-alpine3.19 as builder
 LABEL description="nginx"
 
 ARG ARG_AERGO_NODE_HOST
@@ -14,7 +14,7 @@ COPY ./aergoscan_v2_frontend/. .
 RUN AERGO_NODE=${AERGO_NODE} API_URL=${API_URL} yarn build
 
 
-FROM nginx:latest
+FROM nginx:1.27.1-alpine:latest
 COPY --from=builder /aergoscan_frontend/build /usr/share/nginx/html
 RUN mkdir /etc/nginx/ssl
 COPY ./nginx/rootca_frontend.crt /etc/nginx/ssl/rootca_frontend.crt
