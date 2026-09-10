@@ -4,3 +4,6 @@
 
 # test generated
 /data
+
+# runtime files
+/.env
