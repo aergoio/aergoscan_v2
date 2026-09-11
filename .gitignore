@@ -1,1 +1,9 @@
+# IDE generated
+.idea
+.eclipse
+
+# test generated
 /data
+
+# runtime files
+/.env

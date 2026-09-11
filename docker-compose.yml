@@ -2,7 +2,7 @@ version: '3.2'
 services:
     frontend:
         container_name: frontend_v2
-        image: aergoscan/frontend:2.6.1
+        image: aergoscan/frontend:2.8.2
         ports:
             - '80:80'
             - '443:443'
@@ -18,7 +18,7 @@ services:
             - backend
     backend:
         container_name: aergoscan-api
-        image: aergoscan/api:2.6.1
+        image: aergoscan/api:2.8.2
         ports:
             - '3000:3000'
         build:
@@ -34,7 +34,7 @@ services:
         restart: always
     indexer:
         container_name: indexer
-        image: aergo/indexer2:2.6.1
+        image: aergo/indexer2:2.8.2
         ports:
             - 8000:8000
         privileged: true
@@ -57,7 +57,7 @@ services:
             discovery.type: single-node
             xpack.security.enabled: false
             bootstrap.memory_lock: true
-            ES_JAVA_OPTS: -Xms1024m -Xmx1024m
+            ES_JAVA_OPTS: -Xms2g -Xmx4g
         ulimits:
             memlock:
                 soft: -1
